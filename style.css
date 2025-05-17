@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 50px;
+  }
+  
+  #score {
+    font-size: 2em;
+    margin: 20px 0;
+  }
+  
+  .button {
+    padding: 20px 40px;
+    font-size: 1.5em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  #feedback {
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+  
+  #rewards {
+    margin-top: 30px;
+    font-size: 1.4em;
+    color: #ff9800;
+    font-weight: bold;
+  }
+  
+  #img{
+    width: 50%;
+  }
