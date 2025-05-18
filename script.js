@@ -6,10 +6,17 @@ const rewardMessages = [
   "🏆 Gold Badge Unlocked!",
   "👑 Ultimate Habit Master!"
 ];
+const buttonPhrases = [
+  "Keep clicking me 🤭",
+  "You're doing a good job 💪",
+  "Almost there... 🫣",
+  "Finally done! 🥵"
+];
 let rewardLevel = 0;
 let imageIndex = 0;
 
 let imageSource = document.getElementById("img");
+let clickBtn = document.getElementById("clickBtn");
 let imageArray = [
   './side-eye.jpg',
   './meme2.jpg',
@@ -25,13 +32,28 @@ function clickButton() {
   const feedback = document.getElementById("feedback");
   const rewards = document.getElementById("rewards");
 
-  // Show an image every 5 points after reaching 30
+  // Animate button
+  clickBtn.classList.add("pulse");
+  setTimeout(() => clickBtn.classList.remove("pulse"), 300);
+
+  // Change button text
+  if (score < 10) {
+    clickBtn.textContent = buttonPhrases[0];
+  } else if (score < 20) {
+    clickBtn.textContent = buttonPhrases[1];
+  } else if (score < 30) {
+    clickBtn.textContent = buttonPhrases[2];
+  } else {
+    clickBtn.textContent = buttonPhrases[3];
+  }
+
+  // Meme zone
   if (score >= 30 && score % rewardInterval === 0 && imageIndex < imageArray.length) {
     imageSource.src = imageArray[imageIndex];
     imageIndex++;
     rewards.textContent = "";
     feedback.textContent = "😏 You're in the bonus meme zone!";
-  } 
+  }
   else if (score % rewardInterval === 0) {
     if (rewardLevel < rewardMessages.length) {
       rewards.textContent = rewardMessages[rewardLevel];
@@ -40,10 +62,11 @@ function clickButton() {
       rewards.textContent = "🎯 Keep the streak going!";
     }
     feedback.textContent = "🎉 You've hit a reward point!";
-  } 
-  else {
+  } else {
     feedback.textContent = "Keep going... you're close to the next reward!";
   }
 
   console.log(`User clicked button. Current score: ${score}`);
 }
+
+console.log("Clicker reward game with animation and button phrases loaded");
